@@ -55,12 +55,19 @@ in
   users.extraUsers.arroyo = {
     isNormalUser = true;
     home = "/home/arroyo";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "qemu-libvirtd" "libvirtd" "docker" ];
     shell = pkgs.fish;
   };
 
   # Disable sudo password
   security.sudo.wheelNeedsPassword = false;
+
+  # Enable libvirtd
+  virtualisation.libvirtd.enable = true;
+  boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
+
+  # Enable docker
+  virtualisation.docker.enable = true;
   
   # Xorg
   services.xserver = {
@@ -90,6 +97,7 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
+    postgresql
     python-with-my-packages
     wget
     xorg.xmodmap
@@ -99,6 +107,11 @@ in
     tdesktop
     docker
     vagrant
+    pulumi-bin
+    bitwarden
+    bitwarden-cli
+    nodejs
+    whatsapp-for-linux
     # stack
   ];
 

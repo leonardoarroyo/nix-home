@@ -16,3 +16,20 @@ dotfiles/config/VSCodium/*
 !dotfiles/config/VSCodium/User
 dotfiles/config/VSCodium/User/*
 !dotfiles/config/VSCodium/User/settings.json
+
+# todo
+git
+kitty
+nvim
+rofi
+
+# maybe
+fish
+xfce4
+user-dirs.dirs
+user-dirs.locale
+mimeapps.list
+pavucontrol.ini
+pulse
+dconf
+environment.d
