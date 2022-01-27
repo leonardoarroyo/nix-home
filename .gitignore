@@ -1,5 +1,11 @@
 dotfiles/config/*
 
+# i3 dotfiles
 !dotfiles/config/i3
 dotfiles/config/i3/*
 !dotfiles/config/i3/config
+
+# xmodmap dotfiles
+!dotfiles/config/xmodmap
+dotfiles/config/xmodmap/*
+!dotfiles/config/xmodmap/escapeswitch
