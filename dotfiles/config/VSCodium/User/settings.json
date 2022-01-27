@@ -1,0 +1,6 @@
+{
+    "vscode-neovim.neovimExecutablePaths.linux": "/home/arroyo/.nix-profile/bin/nvim",
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "monokai-charcoal (purple)",
+    "keyboard.dispatch": "keyCode"
+}

@@ -9,3 +9,10 @@ dotfiles/config/i3/*
 !dotfiles/config/xmodmap
 dotfiles/config/xmodmap/*
 !dotfiles/config/xmodmap/escapeswitch
+
+# VSCodium settings
+!dotfiles/config/VSCodium
+dotfiles/config/VSCodium/*
+!dotfiles/config/VSCodium/User
+dotfiles/config/VSCodium/User/*
+!dotfiles/config/VSCodium/User/settings.json
