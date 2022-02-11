@@ -10,12 +10,12 @@ dotfiles/config/i3/*
 dotfiles/config/xmodmap/*
 !dotfiles/config/xmodmap/escapeswitch
 
-# VSCodium settings
-!dotfiles/config/VSCodium
-dotfiles/config/VSCodium/*
-!dotfiles/config/VSCodium/User
-dotfiles/config/VSCodium/User/*
-!dotfiles/config/VSCodium/User/settings.json
+# VSCode settings
+!dotfiles/config/Code
+dotfiles/config/Code/*
+!dotfiles/config/Code/User
+dotfiles/config/Code/User/*
+!dotfiles/config/Code/User/settings.json
 
 # todo
 git
