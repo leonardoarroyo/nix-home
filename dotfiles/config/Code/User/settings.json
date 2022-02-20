@@ -1,7 +1,11 @@
 {
     "vscode-neovim.neovimExecutablePaths.linux": "/home/arroyo/.nix-profile/bin/nvim",
     "window.menuBarVisibility": "toggle",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "monokai-charcoal (purple)",
     "keyboard.dispatch": "keyCode",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "fnx-dev": "linux"
+    }
 }
