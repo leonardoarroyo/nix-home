@@ -4,6 +4,7 @@ with pkgs;
 let
   my-python-packages = python-packages: with python-packages; [
     requests
+    pudb
   ]; 
   python-with-my-packages = python3.withPackages my-python-packages;
 in
@@ -115,6 +116,12 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
+    keybase
+    keybase-gui
+    graphviz
+    busybox
+    glxinfo
+    pamixer
     gnupg
     pinentry
     pinentry-curses
@@ -122,6 +129,7 @@ in
     python-with-my-packages
     wget
     xorg.xmodmap
+    xorg.xbacklight
     zip
     filezilla
     pavucontrol
@@ -142,12 +150,18 @@ in
     qimgv
     scrot
     calibre
-    slack
-    zoom-us
-    teams
     evolution
     git-crypt
+    p7zip
+    redis
+    spotify
+
+    # Questionable
+    teams
     chromium
+    discord
+    zoom-us
+    slack
   ];
 
   programs.steam.enable = true;
@@ -174,6 +188,7 @@ in
           asvetliakov.vscode-neovim
 	  eamodio.gitlens
           ms-vscode-remote.remote-ssh
+	  ms-python.python
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
             "name" = "monokai-charcoal-high-contrast";
@@ -186,6 +201,30 @@ in
             "publisher" = "bierner";
             "version" = "0.1.0";
             "sha256" = "8c7b0d454a2d95e7a1f28265d98a1a84039b818b95b05c227fb21952c3f44a4f";
+          }
+          {
+            "name" = "vscode-test-explorer";
+            "publisher" = "hbenl";
+            "version" = "2.21.1";
+            "sha256" = "7c7c9e3ddf1f60fb7bccf1c11a256677c7d1c7e20cdff712042ca223f0b45408";
+          }
+          {
+            "name" = "vscode-python-test-adapter";
+            "publisher" = "LittleFoxTeam";
+            "version" = "0.7.0";
+            "sha256" = "920cfbebb769fbfff82f1e7d2660c2f5a2aaf3d015a5f8045624357ead7d84cb";
+          }
+          {
+            "name" = "test-adapter-converter";
+            "publisher" = "ms-vscode";
+            "version" = "0.1.5";
+            "sha256" = "9e58b8589f7a94bdc9b2c36ec0b0acb61be9848eec6854f692d590e3a54da287";
+          }
+          {
+            "name" = "reload";
+            "publisher" = "natqe";
+            "version" = "0.0.6";
+            "sha256" = "6d314b937b0225bef3b640bf0b1722ea7ed16dcc8d8c460d2911147fdc034115";
           }
         ];
       };
@@ -231,6 +270,33 @@ in
 
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
+
+  # Keybase settings
+  services.kbfs = {
+    enable = true;
+    mountPoint = "%t/kbfs";
+    extraFlags = [ "-label %u" ];
+  };
+
+  systemd.user.services = {
+    keybase.serviceConfig.Slice = "keybase.slice";
+
+    kbfs = {
+      environment = { KEYBASE_RUN_MODE = "prod"; };
+      serviceConfig.Slice = "keybase.slice";
+    };
+
+    keybase-gui = {
+      description = "Keybase GUI";
+      requires = [ "keybase.service" "kbfs.service" ];
+      after    = [ "keybase.service" "kbfs.service" ];
+      serviceConfig = {
+        ExecStart  = "${pkgs.keybase-gui}/share/keybase/Keybase";
+        PrivateTmp = true;
+        Slice      = "keybase.slice";
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
