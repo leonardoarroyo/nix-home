@@ -116,6 +116,7 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
+    audacity
     keybase
     keybase-gui
     graphviz
