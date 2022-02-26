@@ -130,7 +130,7 @@ in
     python-with-my-packages
     wget
     xorg.xmodmap
-    xorg.xbacklight
+    brightnessctl
     zip
     filezilla
     pavucontrol
