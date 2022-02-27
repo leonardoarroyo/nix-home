@@ -18,8 +18,15 @@ in
       (import "${home-manager}/nixos")
     ];
 
-  # Nvidia
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  # Enable Nvidia (sync mode)
+  hardware.nvidia.modesetting.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.dpi = 96;
+  hardware.nvidia.prime.sync.enable = true;
+  hardware.nvidia.prime = {
+    nvidiaBusId = "PCI:1:0:0";
+    intelBusId = "PCI:0:2:0";
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
