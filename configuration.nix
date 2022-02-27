@@ -137,6 +137,7 @@ in
     python-with-my-packages
     wget
     xorg.xmodmap
+    xorg.xkill
     brightnessctl
     zip
     filezilla
