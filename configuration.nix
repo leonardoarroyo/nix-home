@@ -142,6 +142,8 @@ in
     zip
     filezilla
     pavucontrol
+    wineWowPackages.stable
+    lutris
     tdesktop
     docker
     vagrant
@@ -164,6 +166,8 @@ in
     p7zip
     redis
     spotify
+    libfaketime
+    ncdu
 
     # Questionable
     teams

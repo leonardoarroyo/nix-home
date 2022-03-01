@@ -7,5 +7,6 @@
     "remote.SSH.useLocalServer": false,
     "remote.SSH.remotePlatform": {
         "fnx-dev": "linux"
-    }
+    },
+    "workbench.startupEditor": "none"
 }
