@@ -27,6 +27,7 @@ in
     nvidiaBusId = "PCI:1:0:0";
     intelBusId = "PCI:0:2:0";
   };
+  
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -42,6 +43,7 @@ in
   networking.hostName = "i5"; # Define your hostname.
   networking.useDHCP = false;
   networking.interfaces.enp8s0.useDHCP = true;
+  networking.networkmanager.enable = true;
 
   # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
@@ -168,6 +170,8 @@ in
     spotify
     libfaketime
     ncdu
+    aws-vault
+    libreoffice-qt
 
     # Questionable
     teams
