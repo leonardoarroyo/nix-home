@@ -111,6 +111,7 @@ in
         dmenu
         i3status
         i3lock
+	polybar
       ];
     };
   };
@@ -140,6 +141,7 @@ in
     wget
     xorg.xmodmap
     xorg.xkill
+    xorg.libXrender
     brightnessctl
     zip
     filezilla
@@ -172,6 +174,9 @@ in
     ncdu
     aws-vault
     libreoffice-qt
+    feh
+    patchelf
+    insomnia
 
     # Questionable
     teams
@@ -242,6 +247,12 @@ in
             "publisher" = "natqe";
             "version" = "0.0.6";
             "sha256" = "6d314b937b0225bef3b640bf0b1722ea7ed16dcc8d8c460d2911147fdc034115";
+          }
+          {
+            "name" = "Bookmarks";
+            "publisher" = "alefragnani";
+            "version" = "13.2.4";
+            "sha256" = "2e29be5f0611dfa7dd4a43076ec1645d6f4ccec2e333a2033af67a9e8086e60c";
           }
         ];
       };
