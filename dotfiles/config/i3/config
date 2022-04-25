@@ -195,36 +195,13 @@ bar {
 
 
 # Background
-exec feh --bg-scale ~/.config/backgrounds/01.jpg 
+exec feh --bg-scale ~/.bg/wallhaven-k7v9yq.png 
 
 # Print screen
 # scrot & gimp - root
 bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 # scrot & gimp - select window or rectangle
 bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
-
-
-# Touchpad
-exec --no-startup-id bash /home/arroyo/.config/scripts/set_touchpad.sh
-
-# Tibia
-#bindsym mod2+KP_5 exec xdotool mousemove 960 480 && xdotool keydown alt && xdotool mousedown 1 && xdotool mouseup 1 && xdotool keyup alt
-#bindsym mod2+KP_5 exec xdotool mousemove 960 480 && xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_2 exec xdotool mousemove 960 530 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_5 exec xdotool mousemove 960 460 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_8 exec xdotool mousemove 960 380 & xdotool mousedown 3 && xdotool mouseup 3
-
-bindsym mod2+KP_1 exec xdotool mousemove 900 530 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_4 exec xdotool mousemove 900 460 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_7 exec xdotool mousemove 900 380 & xdotool mousedown 3 && xdotool mouseup 3
-
-bindsym mod2+KP_3 exec xdotool mousemove 1020 530 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_6 exec xdotool mousemove 1020 460 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+KP_9 exec xdotool mousemove 1020 380 & xdotool mousedown 3 && xdotool mouseup 3
-bindsym mod2+Space exec systemctl suspend
-
-bindsym Menu exec bash /home/arroyo/.config/scripts/tibiaproxytoggle.sh
-
 
 # sticky
 bindsym $mod+u sticky toggle
