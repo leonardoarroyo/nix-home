@@ -110,7 +110,7 @@ in
       extraPackages = with pkgs; [
         dmenu
         i3status
-        i3lock
+        i3lock-fancy
 	polybar
       ];
     };

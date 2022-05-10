@@ -195,7 +195,7 @@ bar {
 
 
 # Background
-exec feh --bg-scale ~/.bg/wallhaven-k7v9yq.png 
+exec feh --bg-scale ~/.bg/346725.jpg 
 
 # Print screen
 # scrot & gimp - root
