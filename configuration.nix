@@ -155,7 +155,12 @@ in
     bitwarden
     bitwarden-cli
     nodejs
+    gcc11
+    ghc
+    haskell-language-server
     stack
+    haskellPackages.ghcup
+    haskellPackages.zlib
     evince
     okular
     xournal
@@ -205,7 +210,6 @@ in
         package = pkgs.vscode;
         extensions = with pkgs.vscode-extensions; [
           haskell.haskell
-          justusadam.language-haskell
           jnoortheen.nix-ide
           asvetliakov.vscode-neovim
 	  eamodio.gitlens
