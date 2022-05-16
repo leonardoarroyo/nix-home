@@ -53,6 +53,7 @@ in
   };
 
   # Enable sound.
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -97,7 +98,7 @@ in
 
     desktopManager = {
       xterm.enable = false;
-      xfce.enable = true;
+      gnome.enable = true;
     };
 
     displayManager = {
@@ -126,6 +127,8 @@ in
 
   # System packages
   environment.systemPackages = with pkgs; [
+    vlc
+    debianutils
     audacity
     keybase
     keybase-gui
@@ -139,6 +142,7 @@ in
     postgresql
     python-with-my-packages
     wget
+    arandr
     xorg.xmodmap
     xorg.xkill
     xorg.libXrender
@@ -147,6 +151,7 @@ in
     filezilla
     pavucontrol
     wineWowPackages.stable
+    winetricks
     lutris
     tdesktop
     docker
@@ -182,6 +187,8 @@ in
     feh
     patchelf
     insomnia
+    unity3d
+    xorg.libxcb
 
     # Questionable
     teams
@@ -293,6 +300,21 @@ in
       # };
     };
   };
+
+  # Sway
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # so that gtk works properly
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      wl-clipboard
+      mako # notification daemon
+      alacritty # Alacritty is the default terminal in the config
+      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+    ];
+  };
+
 
   # Haskell binary caches
   nix = {
